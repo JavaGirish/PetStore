@@ -174,7 +174,29 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Update Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd111226-2b9b-4cb8-ada6-744eaf8b0894",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.category.name).to.eql(\"Shoes\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "dc58ce7b-d6a0-4b44-8df7-9506c5573b70",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -277,7 +299,7 @@
 	],
 	"variable": [
 		{
-			"id": "65f135da-2ce2-4448-8f25-402e290cb17a",
+			"id": "c4c6e99f-0f04-4909-88b2-a70633733013",
 			"key": "petid",
 			"value": ""
 		}
